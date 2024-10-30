@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "pbi-informeultrasecreto"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "548b84de-0e61-4dd2-ad9f-e9bf8f632485"
+  }
+}
