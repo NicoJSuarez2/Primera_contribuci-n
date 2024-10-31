@@ -12,3 +12,4 @@ Personas que dejaron su comentario:
 4. Daniel Piamba (prueba 3)
 5. Camila Preciado
 6. Jesús Pardo
+7. Cristian Cardenas
