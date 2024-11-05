@@ -1,0 +1,98 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 95.099999999999909,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 38.900000000000091,
+            "y": 0
+          },
+          "nodeIndex": "Medidas",
+          "nodeLineageTag": "18bdb675-200a-4eea-af5c-7a1cf7dc91b2",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 2
+        },
+        {
+          "location": {
+            "x": 149.10000000000002,
+            "y": 206
+          },
+          "nodeIndex": "Calendario",
+          "nodeLineageTag": "0bba5c31-16b9-4c22-970b-8e27318ccff2",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 580.8,
+            "y": 0
+          },
+          "nodeIndex": "Requerimiento",
+          "nodeLineageTag": "5f116a92-724c-4b31-8587-f0762c316456",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 579.289197224975,
+            "y": 390.71020812685833
+          },
+          "nodeIndex": "Numeración Tallas",
+          "nodeLineageTag": "542cc2ff-97c3-4217-8269-9b4e640f0683",
+          "size": {
+            "height": 168.73012884043612,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1138.0999999999997,
+            "y": 69
+          },
+          "nodeIndex": "Entidades",
+          "size": {
+            "height": 145,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1383.1999999999996,
+            "y": 179.72016848364723
+          },
+          "nodeIndex": "resumen",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "Todas las tablas",
+      "zoomValue": 66.2899940871165,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "Todas las tablas",
+  "defaultDiagram": "Todas las tablas"
+}

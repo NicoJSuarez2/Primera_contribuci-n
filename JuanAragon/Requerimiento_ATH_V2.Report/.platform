@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Requerimiento_ATH_V2"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "a2e71ba9-28d4-4efd-bc6d-1f6643bd5ecb"
+  }
+}

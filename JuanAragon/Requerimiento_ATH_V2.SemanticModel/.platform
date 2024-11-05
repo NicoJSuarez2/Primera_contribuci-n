@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "Requerimiento_ATH_V2"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "8b84fdea-76b5-45ca-a04a-c7865627ba94"
+  }
+}

@@ -1,0 +1,1395 @@
+{
+  "compatibilityLevel": 1567,
+  "model": {
+    "annotations": [
+      {
+        "name": "PBI_QueryOrder",
+        "value": "[\"Medidas\",\"Requerimiento\",\"Numeración Tallas\",\"Entidades\"]"
+      },
+      {
+        "name": "__PBI_TimeIntelligenceEnabled",
+        "value": "1"
+      },
+      {
+        "name": "PBIDesktopVersion",
+        "value": "2.137.1102.0 (24.10)"
+      },
+      {
+        "name": "PBI_ProTooling",
+        "value": "[\"DevMode\"]"
+      }
+    ],
+    "culture": "es-ES",
+    "cultures": [
+      {
+        "name": "es-ES",
+        "linguisticMetadata": {
+          "content": {
+            "Entities": {
+              "medidas.sumahoras": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "Medidas",
+                    "ConceptualProperty": "SumaHoras"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "Total Horas": {
+                      "Source": {
+                        "Agent": "PowerBI.VisualColumnRename",
+                        "Type": "External"
+                      },
+                      "State": "Suggested",
+                      "Weight": 0.9
+                    }
+                  }
+                ]
+              }
+            },
+            "Language": "en-US",
+            "Version": "2.0.0"
+          },
+          "contentType": "json"
+        }
+      }
+    ],
+    "dataAccessOptions": {
+      "legacyRedirects": true,
+      "returnErrorValuesAsNull": true
+    },
+    "defaultPowerBIDataSourceVersion": "powerBI_V3",
+    "relationships": [
+      {
+        "name": "0da97a7b-1579-415d-ac5b-3cbf4116de21",
+        "fromColumn": "Fecha",
+        "fromTable": "Calendario",
+        "joinOnDateBehavior": "datePartOnly",
+        "toColumn": "Date",
+        "toTable": "LocalDateTable_26d48541-9fd3-4cbb-baa8-68fb1b43b7d8"
+      },
+      {
+        "name": "da783b49-0f61-49e6-b830-9a0cc1d6857b",
+        "fromColumn": "Fecha Requerimiento",
+        "fromTable": "Requerimiento",
+        "toColumn": "Fecha",
+        "toTable": "Calendario"
+      },
+      {
+        "name": "39c6d63c-3ebc-4868-9132-a604fc189be8",
+        "fromColumn": "Talla.Nombre",
+        "fromTable": "Requerimiento",
+        "toColumn": "Tallas",
+        "toTable": "Numeración Tallas"
+      },
+      {
+        "name": "e86d8c61-84b8-46ac-9eed-796d5236be2f",
+        "crossFilteringBehavior": "bothDirections",
+        "fromColumn": "Identificación Entidad",
+        "fromTable": "Requerimiento",
+        "toColumn": "Identificación Entidad",
+        "toTable": "Entidades"
+      }
+    ],
+    "sourceQueryCulture": "es-CO",
+    "tables": [
+      {
+        "name": "DateTableTemplate_25d59bb7-ac7b-470c-a544-ae41c3e9e891",
+        "annotations": [
+          {
+            "name": "__PBI_TemplateDateTable",
+            "value": "true"
+          },
+          {
+            "name": "DefaultItem",
+            "value": "DateHierarchy"
+          }
+        ],
+        "columns": [
+          {
+            "name": "Date",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              }
+            ],
+            "dataCategory": "PaddedDateTableDates",
+            "dataType": "dateTime",
+            "isDataTypeInferred": true,
+            "isHidden": true,
+            "isNameInferred": true,
+            "lineageTag": "140a6457-6c03-455e-b376-2ad7a71b7b5a",
+            "sourceColumn": "[Date]",
+            "summarizeBy": "none",
+            "type": "calculatedTableColumn"
+          },
+          {
+            "name": "Año",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Year"
+              }
+            ],
+            "dataCategory": "Years",
+            "dataType": "int64",
+            "expression": "YEAR([Date])",
+            "isDataTypeInferred": true,
+            "isHidden": true,
+            "lineageTag": "5c18066a-5763-465b-92c4-1a782f1fcbd4",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "NroMes",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "MonthNumber"
+              }
+            ],
+            "dataCategory": "MonthOfYear",
+            "dataType": "int64",
+            "expression": "MONTH([Date])",
+            "isDataTypeInferred": true,
+            "isHidden": true,
+            "lineageTag": "d756f3df-6893-45e0-950a-7ed907e66aee",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "Mes",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Month"
+              }
+            ],
+            "dataCategory": "Months",
+            "dataType": "string",
+            "expression": "FORMAT([Date], \"MMMM\")",
+            "isDataTypeInferred": true,
+            "isHidden": true,
+            "lineageTag": "415dcf58-10e7-4a87-9552-e90ac7feb5aa",
+            "sortByColumn": "NroMes",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "NroTrimestre",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "QuarterNumber"
+              }
+            ],
+            "dataCategory": "QuarterOfYear",
+            "dataType": "int64",
+            "expression": "INT(([NroMes] + 2) / 3)",
+            "isDataTypeInferred": true,
+            "isHidden": true,
+            "lineageTag": "f5de3a66-10b9-42c9-8975-36f94b858856",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "Trimestre",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Quarter"
+              }
+            ],
+            "dataCategory": "Quarters",
+            "dataType": "string",
+            "expression": "\"Trim. \" & [NroTrimestre]",
+            "isDataTypeInferred": true,
+            "isHidden": true,
+            "lineageTag": "a80a0eae-38fe-4170-bfef-5e23fab0a8b0",
+            "sortByColumn": "NroTrimestre",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "Día",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Day"
+              }
+            ],
+            "dataCategory": "DayOfMonth",
+            "dataType": "int64",
+            "expression": "DAY([Date])",
+            "isDataTypeInferred": true,
+            "isHidden": true,
+            "lineageTag": "9546dfb6-6b4d-48a6-a59b-8cfd73865b5c",
+            "summarizeBy": "none",
+            "type": "calculated"
+          }
+        ],
+        "hierarchies": [
+          {
+            "name": "Jerarquía de fechas",
+            "annotations": [
+              {
+                "name": "TemplateId",
+                "value": "DateHierarchy"
+              }
+            ],
+            "levels": [
+              {
+                "name": "Año",
+                "column": "Año",
+                "lineageTag": "d745a38f-e2e3-47f5-9c27-766a53c5d4d1",
+                "ordinal": 0
+              },
+              {
+                "name": "Trimestre",
+                "column": "Trimestre",
+                "lineageTag": "8a881092-dd0a-423e-bc48-4ee0d03f8a8b",
+                "ordinal": 1
+              },
+              {
+                "name": "Mes",
+                "column": "Mes",
+                "lineageTag": "e21140be-7e5a-428f-9eba-e903eb398497",
+                "ordinal": 2
+              },
+              {
+                "name": "Día",
+                "column": "Día",
+                "lineageTag": "96c88b8c-0f20-47c8-9dee-133474554d3f",
+                "ordinal": 3
+              }
+            ],
+            "lineageTag": "2118909d-aa95-47ec-91d2-d1829102c702"
+          }
+        ],
+        "isHidden": true,
+        "isPrivate": true,
+        "lineageTag": "f31cacf0-1d98-4378-b00b-55d4ba92d60d",
+        "partitions": [
+          {
+            "name": "DateTableTemplate_25d59bb7-ac7b-470c-a544-ae41c3e9e891-9bfbcbc6-138b-4a17-9f3c-2e57c12ba131",
+            "mode": "import",
+            "source": {
+              "expression": "Calendar(Date(2015,1,1), Date(2015,1,1))",
+              "type": "calculated"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Medidas",
+        "annotations": [
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          },
+          {
+            "name": "PBI_NavigationStepName",
+            "value": "Navegación"
+          }
+        ],
+        "lineageTag": "18bdb675-200a-4eea-af5c-7a1cf7dc91b2",
+        "measures": [
+          {
+            "name": "SumaHoras",
+            "displayFolder": "Horas",
+            "expression": "FORMAT( SUM(Requerimiento[Horas]), \"#,#\")",
+            "lineageTag": "e47b21e8-b812-4c7d-9852-3115c434d87c"
+          },
+          {
+            "name": "Última Actualización",
+            "expression": "\"Actualizado \" & UTCNOW() - TIME(5,0,0)",
+            "lineageTag": "74f86ea3-b69d-40b7-ac8d-af9e35e9eb7a"
+          },
+          {
+            "name": "Etiqueta Horas",
+            "changedProperties": [
+              {
+                "property": "IsHidden"
+              }
+            ],
+            "displayFolder": "Etiquetas",
+            "expression": "\"Acti:\" & FORMAT([SumaHoras] , \"0,\") & \" Hrs\"",
+            "lineageTag": "f64e5e2e-2851-49f8-97df-6e2569065aab"
+          },
+          {
+            "name": "Porcentaje Horas",
+            "displayFolder": "Horas",
+            "expression": [
+              "DIVIDE(",
+              "                            CALCULATE([SumaHoras], ALLEXCEPT('Requerimiento', 'Requerimiento'[Servicio])),",
+              "                            CALCULATE([SumaHoras], ALL('Requerimiento'))",
+              "                        )"
+            ],
+            "formatString": "0.0\\ %;-0.0\\ %;0.0\\ %",
+            "lineageTag": "3cb16961-ec01-42c9-82a0-a3e5b38ee31c"
+          },
+          {
+            "name": "Horas x Q Actual",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "displayFolder": "Horas",
+            "expression": [
+              "",
+              "    IF(",
+              "        MONTH(TODAY()) <= 3,",
+              "        CALCULATE(",
+              "            SUM(Requerimiento[Horas]),",
+              "            AND( Requerimiento[Trimestre] = \"Q1\", YEAR(Requerimiento[Fecha Requerimiento]) = YEAR(TODAY()))",
+              "        ),",
+              "        IF(",
+              "            MONTH(TODAY()) <= 6,",
+              "            CALCULATE(",
+              "            SUM(Requerimiento[Horas]),",
+              "            AND( Requerimiento[Trimestre] = \"Q2\", YEAR(Requerimiento[Fecha Requerimiento]) = YEAR(TODAY()))",
+              "        ),",
+              "            IF(",
+              "                MONTH(TODAY()) <= 9,",
+              "                CALCULATE(",
+              "                SUM(Requerimiento[Horas]),",
+              "                AND( Requerimiento[Trimestre] = \"Q3\", YEAR(Requerimiento[Fecha Requerimiento]) = YEAR(TODAY()))",
+              "            ),",
+              "                IF(",
+              "                    MONTH(TODAY()) <= 12,",
+              "                    CALCULATE(SUM(Requerimiento[Horas]),Requerimiento[Trimestre]=\"Q4\"),",
+              "                    \"0\"",
+              "                )",
+              "            )",
+              "        ",
+              "        )",
+              "    )"
+            ],
+            "lineageTag": "a91f440e-bfd2-4480-836a-23f4fcd791b5"
+          },
+          {
+            "name": "simplificado",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "expression": [
+              "CALCULATE(",
+              "    SUM(Requerimiento[Horas]),",
+              "    FILTER(",
+              "        Requerimiento,",
+              "        Requerimiento[Trimestre]",
+              "            = SWITCH(",
+              "                TRUE(),",
+              "                MONTH(TODAY()) <= 3, \"Q4\",",
+              "                MONTH(TODAY()) <= 6, \"Q1\",",
+              "                MONTH(TODAY()) <= 9, \"Q2\",",
+              "                \"Q3\"",
+              "            )",
+              "            && YEAR(Requerimiento[Fecha Requerimiento]) = 2023",
+              "    )",
+              ")"
+            ],
+            "lineageTag": "e8020f46-b807-491b-95aa-1c7caf99bcaf"
+          },
+          {
+            "name": "Horas Proyectos",
+            "displayFolder": "Horas",
+            "expression": "CALCULATE(FORMAT(SUM(Requerimiento[Horas]),\"##,##.0\"),Requerimiento[Proyecto /Requerimiento]=\"Proyecto\") ",
+            "lineageTag": "edbe2129-621e-40e0-9f7e-e709a2a45acd"
+          },
+          {
+            "name": "Tendencia",
+            "displayFolder": "Etiquetas",
+            "expression": [
+              "CALCULATE(",
+              "    MAX(Requerimiento[Horas]),",
+              "    FILTER(",
+              "        Requerimiento,",
+              "        Requerimiento[Servicio] <> \"\"",
+              "    )",
+              ")"
+            ],
+            "formatString": "0",
+            "lineageTag": "a1a75db5-af2d-4b17-bfd5-57d227ccd7cc"
+          },
+          {
+            "name": "Servicio",
+            "displayFolder": "Etiquetas",
+            "expression": [
+              "",
+              "var s1= CALCULATE(SUM(Requerimiento[Horas]), Requerimiento[Servicio]= \"S1. Especificación\",Requerimiento[Proyecto /Requerimiento]=\"Proyecto\")",
+              "var s2= CALCULATE(SUM(Requerimiento[Horas]), Requerimiento[Servicio]= \"S2.Arquitectura y Diseño\",Requerimiento[Proyecto /Requerimiento]=\"Proyecto\")",
+              "var s3= CALCULATE(SUM(Requerimiento[Horas]), Requerimiento[Servicio]= \"S3.Construcción de Software\",Requerimiento[Proyecto /Requerimiento]=\"Proyecto\")",
+              "var s4= CALCULATE(SUM(Requerimiento[Horas]), Requerimiento[Servicio]= \"S4. Soporte y Mtto\",Requerimiento[Proyecto /Requerimiento]=\"Proyecto\")",
+              "",
+              "RETURN",
+              "IF(s1 > s2 && s1 > s3 && s1 > s4, \"S1. Especificación\",",
+              "IF(s2 > s3 && s2 > s4, \"S2.Arquitectura y Diseño\",",
+              "IF(s3 > s4, \"S3.Construcción de Software\", \"S4. Soporte y Mtto\")))"
+            ],
+            "lineageTag": "82549856-5137-4438-9722-00831703048e"
+          },
+          {
+            "name": "Talla Destacada",
+            "displayFolder": "Etiquetas",
+            "expression": [
+              "",
+              "var xs1= CALCULATE(SUM(Requerimiento[Horas]), Requerimiento[Servicio]= \"XS\",Requerimiento[Proyecto /Requerimiento]=\"Proyecto\")",
+              "var s2= CALCULATE(SUM(Requerimiento[Horas]), Requerimiento[Servicio]= \"S\",Requerimiento[Proyecto /Requerimiento]=\"Proyecto\")",
+              "var m3= CALCULATE(SUM(Requerimiento[Horas]), Requerimiento[Servicio]= \"M\",Requerimiento[Proyecto /Requerimiento]=\"Proyecto\")",
+              "var l4= CALCULATE(SUM(Requerimiento[Horas]), Requerimiento[Servicio]= \"L\",Requerimiento[Proyecto /Requerimiento]=\"Proyecto\")",
+              "var xl5= CALCULATE(SUM(Requerimiento[Horas]), Requerimiento[Servicio]= \"XL\",Requerimiento[Proyecto /Requerimiento]=\"Proyecto\")",
+              "",
+              "",
+              "RETURN",
+              "IF(xs1 > s2 && xs1 > m3 && xs1 > l4 && xs1 > xl5, \"XS\",",
+              "    IF(s2 > m3 && s2 > l4 && s2 > xl5, \"S\",",
+              "        IF(m3 > l4 && m3 > xl5, \"M\",",
+              "            IF(l4 > xl5, \"L\",",
+              "             \"xl\")",
+              "            )",
+              "        )",
+              "    )"
+            ],
+            "lineageTag": "65e05c83-a37e-4cd7-94bf-9c25fd279395"
+          },
+          {
+            "name": "# Entidades",
+            "displayFolder": "Etiquetas",
+            "expression": "DISTINCTCOUNT(Requerimiento[Entidad]) ",
+            "formatString": "0",
+            "lineageTag": "5c936d1c-a7ca-4f2f-9d0f-ea5e11194051"
+          },
+          {
+            "name": "Tecnologia",
+            "displayFolder": "Etiquetas",
+            "expression": [
+              "",
+              "VAR TablaFiltrada = FILTER(Requerimiento, Requerimiento[Proyecto /Requerimiento] = \"Proyecto\")",
+              "RETURN",
+              "SUMX(",
+              "    GROUPBY(",
+              "        TablaFiltrada,",
+              "        Requerimiento[Servicio]",
+              "    ),",
+              "    [Servicio],",
+              "    SUM(Requerimiento[Horas])",
+              ")"
+            ],
+            "lineageTag": "b314e1ed-6aea-4512-9ecf-86515e14e64e"
+          },
+          {
+            "name": "# Tecnologia",
+            "displayFolder": "Etiquetas",
+            "expression": "DISTINCTCOUNT(Requerimiento[Tecnología.Nombre])",
+            "formatString": "0",
+            "lineageTag": "7a55baf3-70b6-43b4-982a-cb23f149a23b"
+          },
+          {
+            "name": "Horas Celulas",
+            "displayFolder": "Horas",
+            "expression": "CALCULATE(SUM(Requerimiento[Horas]), Requerimiento[Proyecto /Requerimiento]=\"Celula\")",
+            "formatString": "#,0",
+            "lineageTag": "0a8fbcf3-f0b1-4d0f-ab68-980a692e3387"
+          },
+          {
+            "name": "Horas Requerimientos",
+            "displayFolder": "Horas",
+            "expression": "CALCULATE(FORMAT(SUM(Requerimiento[Horas]),\"##,##.0\"),Requerimiento[Proyecto /Requerimiento] = \"Requerimiento\")",
+            "lineageTag": "cdd4c8e1-a49a-4671-921b-aad83c16189f"
+          },
+          {
+            "name": "Mes Vigente",
+            "expression": "CONCATENATE(LEFT(UPPER(FORMAT(TODAY(), \"Mmmm\")), 1), MID(FORMAT(TODAY(), \"Mmmm\"), 2, LEN(FORMAT(TODAY(), \"Mmmm\")))) ",
+            "lineageTag": "b0bdd38b-1737-486c-b150-c1d2a35428e3"
+          },
+          {
+            "name": "Horas Semi Senior",
+            "displayFolder": "Horas",
+            "expression": "CALCULATE(FORMAT(SUM(Requerimiento[Horas]),\"##,##.0\"), Requerimiento[Celula]=\"Semnisenior\")",
+            "lineageTag": "ff23d096-bb97-4925-ae19-3ef5caa37bd4"
+          },
+          {
+            "name": "imag",
+            "expression": "\"https://cdn-icons-png.flaticon.com/128/3917/3917711.png\"",
+            "lineageTag": "c04d89bb-d584-427e-998e-ce405e09d33f"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Medidas-1eb5b270-2584-47a8-9eac-2d2cacf11829",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Origen = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText(\"i44FAA==\", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Columna1 = _t]),",
+                "    #\"Tipo cambiado\" = Table.TransformColumnTypes(Origen,{{\"Columna1\", type text}}),",
+                "    #\"Columnas quitadas\" = Table.RemoveColumns(#\"Tipo cambiado\",{\"Columna1\"})",
+                "in",
+                "    #\"Columnas quitadas\""
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Calendario",
+        "annotations": [
+          {
+            "name": "PBI_Id",
+            "value": "3258f828162c4517b72e72ddb2639873"
+          }
+        ],
+        "columns": [
+          {
+            "name": "Fecha",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "UnderlyingDateTimeDataType",
+                "value": "Date"
+              }
+            ],
+            "dataType": "dateTime",
+            "formatString": "Short Date",
+            "isDataTypeInferred": true,
+            "isNameInferred": false,
+            "lineageTag": "6513ba6a-9222-4ed9-b399-3d1b804edfd3",
+            "sourceColumn": "[Date]",
+            "summarizeBy": "none",
+            "type": "calculatedTableColumn",
+            "variations": [
+              {
+                "name": "Variación",
+                "defaultHierarchy": {
+                  "hierarchy": "Jerarquía de fechas",
+                  "table": "LocalDateTable_26d48541-9fd3-4cbb-baa8-68fb1b43b7d8"
+                },
+                "isDefault": true,
+                "relationship": "0da97a7b-1579-415d-ac5b-3cbf4116de21"
+              }
+            ]
+          },
+          {
+            "name": "Año",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "expression": "YEAR('Calendario'[Fecha])",
+            "formatString": "0",
+            "isDataTypeInferred": true,
+            "lineageTag": "583ac909-1ff9-4ae5-8845-d13a025462ac",
+            "summarizeBy": "sum",
+            "type": "calculated"
+          },
+          {
+            "name": "Mes",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "expression": "MONTH('Calendario'[Fecha])",
+            "formatString": "0",
+            "isDataTypeInferred": true,
+            "lineageTag": "9d8bf233-d4db-4113-8b27-b638462ca2e4",
+            "summarizeBy": "sum",
+            "type": "calculated"
+          },
+          {
+            "name": "Dia",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "expression": "DAY('Calendario'[Fecha])",
+            "formatString": "0",
+            "isDataTypeInferred": true,
+            "lineageTag": "0001a8a6-a226-4d1c-a6b7-975732b0b131",
+            "summarizeBy": "sum",
+            "type": "calculated"
+          },
+          {
+            "name": "NombreMes",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "expression": "FORMAT('Calendario'[Fecha], \"MMMM\")",
+            "isDataTypeInferred": true,
+            "lineageTag": "57d50107-9331-43d0-aeaf-056a8d2aa06c",
+            "sortByColumn": "Mes",
+            "summarizeBy": "none",
+            "type": "calculated"
+          }
+        ],
+        "lineageTag": "0bba5c31-16b9-4c22-970b-8e27318ccff2",
+        "measures": [
+          {
+            "name": "# Tecnologias",
+            "expression": "DISTINCTCOUNT(Requerimiento[Tecnología.Nombre])",
+            "formatString": "0",
+            "lineageTag": "76161615-582e-497b-adab-3ba17cbbaeb8"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Calendario-bc8fff6b-382f-46d7-9cfc-03e135e9e282",
+            "mode": "import",
+            "source": {
+              "expression": "CALENDAR(MIN('Requerimiento'[Fecha Requerimiento]),TODAY())",
+              "type": "calculated"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Requerimiento",
+        "annotations": [
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          },
+          {
+            "name": "PBI_NavigationStepName",
+            "value": "Navegación"
+          }
+        ],
+        "columns": [
+          {
+            "name": "Fecha Requerimiento",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "UnderlyingDateTimeDataType",
+                "value": "Date"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isDateTimeCustom\":true}"
+              }
+            ],
+            "dataType": "dateTime",
+            "formatString": "d/mm/yyyy",
+            "lineageTag": "19b0f53b-ca15-40b7-958e-ea9dcc636dcc",
+            "sourceColumn": "Fecha Requerimiento",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Entidad",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "92cf4e87-2102-4b47-aaa8-bae0b5dd5d66",
+            "sourceColumn": "Entidad",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Horas",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "DataType"
+              }
+            ],
+            "dataType": "decimal",
+            "formatString": "0",
+            "lineageTag": "3d548872-0db4-4eee-9270-4c53aa70cedf",
+            "sourceColumn": "Horas",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "Document.CorreoUsuario",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "57ffbe74-0d71-4745-afce-e77ba912d5fd",
+            "sourceColumn": "Document.CorreoUsuario",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Tecnología.Nombre",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "505fc66f-7603-498e-adbb-564ad04cb8ec",
+            "sourceColumn": "Tecnología.Nombre",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Servicio",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "00ff5900-aa35-47e8-9e76-27e51264c4f0",
+            "sourceColumn": "Servicio",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Talla.Nombre",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "1d95a8a4-2450-42be-9fab-6d2d9aac221d",
+            "sourceColumn": "Talla.Nombre",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "cliente",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "147289a9-767f-49e5-a475-e8a643a49dea",
+            "sourceColumn": "cliente",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Desviación Estimada +/-",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "061254f6-1d74-43fd-a733-e6cb863c9fd7",
+            "sourceColumn": "Desviación Estimada +/-",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Trimestre",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "f4e0d0c2-f45a-4b93-8f15-af0d47b7dcb0",
+            "sourceColumn": "Trimestre",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Proyecto /Requerimiento",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "a637c5d7-59fd-4237-8572-ac3f96ecc452",
+            "sourceColumn": "Proyecto /Requerimiento",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Nombre",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "2629e3d9-67d0-4905-83c7-f4fa72b4225c",
+            "sourceColumn": "Nombre",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Identificación Entidad",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "1beccae4-8794-4a49-af21-950d3534cd9a",
+            "sourceColumn": "Identificación Entidad",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Celula",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "53a01d03-0fd8-49c1-82ea-39f49ee2c2e2",
+            "sourceColumn": "Celula",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Estado ",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "d8020c2c-405d-400e-b776-162911777ed1",
+            "sourceColumn": "Estado ",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "5f116a92-724c-4b31-8587-f0762c316456",
+        "partitions": [
+          {
+            "name": "Requerimiento-e4430ca5-afff-4b8f-ba5a-fd8de70b1071",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Origen = SharePoint.Files(\"https://periferiaitgroup.sharepoint.com/sites/BigData/\", [ApiVersion = 15]),",
+                "    #\"Filas filtradas\" = Table.SelectRows(Origen, each ([Extension] = \".xlsx\") and ([Name] = \"MATRIZ TALLAJE JULIO 2023.xlsx\")),",
+                "    #\"MATRIZ TALLAJE JULIO 2023 xlsx_https://periferiaitgroup sharepoint com/sites/BigData/Documentos compartidos/\" = #\"Filas filtradas\"{[Name=\"MATRIZ TALLAJE JULIO 2023.xlsx\",#\"Folder Path\"=\"https://periferiaitgroup.sharepoint.com/sites/BigData/Documentos compartidos/\"]}[Content],",
+                "    #\"Libro de Excel importado\" = Excel.Workbook(#\"MATRIZ TALLAJE JULIO 2023 xlsx_https://periferiaitgroup sharepoint com/sites/BigData/Documentos compartidos/\"),",
+                "    #\"Requerimiento tallaje_Sheet\" = #\"Libro de Excel importado\"{[Item=\"Requerimiento tallaje\",Kind=\"Sheet\"]}[Data],",
+                "    #\"Encabezados promovidos\" = Table.PromoteHeaders(#\"Requerimiento tallaje_Sheet\", [PromoteAllScalars=true]),",
+                "    #\"Tipo cambiado\" = Table.TransformColumnTypes(#\"Encabezados promovidos\",{{\"Proyecto /",
+                "Requerimiento\", type text}, {\"Nombre\", type text}, {\"Documento Fecha Requerimiento\", type date}, {\"Entidad\", type text}, {\"Horas\", type number}, {\"Document.CorreoUsuario\", type text}, {\"Document.Tecnología.Nombre\", type text}, {\"Document.Actividad.Nombre\", type text}, {\"Document.Talla.Nombre\", type text}, {\"cliente\", type text}, {\"Desviación Estimada +/-\", type text}, {\"Trimestre\", type text}}),",
+                "    #\"Filas filtradas1\" = Table.SelectRows(#\"Tipo cambiado\", each true),",
+                "    #\"Valor reemplazado\" = Table.ReplaceValue(#\"Filas filtradas1\",null,0,Replacer.ReplaceValue,{\"Horas\"}),",
+                "    #\"Tipo cambiado1\" = Table.TransformColumnTypes(#\"Valor reemplazado\",{{\"Horas\", Int64.Type}}),",
+                "    #\"Columnas con nombre cambiado\" = Table.RenameColumns(#\"Tipo cambiado1\",{{\"Document.Actividad.Nombre\", \"Servicio\"}}),",
+                "    #\"Errores reemplazados\" = Table.ReplaceErrorValues(#\"Columnas con nombre cambiado\", {{\"Horas\", 0}}),",
+                "    #\"Tipo cambiado2\" = Table.TransformColumnTypes(#\"Errores reemplazados\",{{\"Horas\", Int64.Type}}),",
+                "    #\"Columnas con nombre cambiado2\" = Table.RenameColumns(#\"Tipo cambiado2\",{{\"Document.Talla.Nombre\", \"Talla.Nombre\"}, {\"Documento Fecha Requerimiento\", \"Fecha Requerimiento\"}, {\"Document.Tecnología.Nombre\", \"Tecnología.Nombre\"}}),",
+                "    #\"Valor reemplazado1\" = Table.ReplaceValue(#\"Columnas con nombre cambiado2\",\"s\",\"S\",Replacer.ReplaceText,{\"Talla.Nombre\"}),",
+                "    #\"Columna condicional agregada\" = Table.AddColumn(#\"Valor reemplazado1\", \"Identificación Entidad\", each if [Entidad] = \"Almaviva\" then 1 else if [Entidad] = \"BBVA\" then 2 else if [Entidad] = \"ATH\" then 3 else if [Entidad] = \"Banco de Occidente\" then 4 else if [Entidad] = \"CREG\" then 5 else if [Entidad] = \"Bancolombia\" then 6 else if [Entidad] = \"Bancoomeva\" then 7 else if [Entidad] = \"Colpatria\" then 8 else if [Entidad] = \"Davivienda\" then 9 else if [Entidad] = \"Porvenir\" then 10 else if [Entidad] = \"Promigas\" then 11 else if [Entidad] = \"Enlace\" then 12 else if [Entidad] = \"Banco AV Villas\" then 13 else if [Entidad] = \"Banco Popular\" then 14 else if [Entidad] = \"Grupo AVAL\" then 15 else if [Entidad] = \"Banco de Bogota\" then 16 else null)",
+                "in",
+                "    #\"Columna condicional agregada\""
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "LocalDateTable_26d48541-9fd3-4cbb-baa8-68fb1b43b7d8",
+        "annotations": [
+          {
+            "name": "__PBI_LocalDateTable",
+            "value": "true"
+          }
+        ],
+        "columns": [
+          {
+            "name": "Date",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              }
+            ],
+            "dataCategory": "PaddedDateTableDates",
+            "dataType": "dateTime",
+            "isDataTypeInferred": true,
+            "isHidden": true,
+            "isNameInferred": true,
+            "lineageTag": "b620b640-868d-4e0c-8735-5fdf2436d7cc",
+            "sourceColumn": "[Date]",
+            "summarizeBy": "none",
+            "type": "calculatedTableColumn"
+          },
+          {
+            "name": "Año",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Year"
+              }
+            ],
+            "dataCategory": "Years",
+            "dataType": "int64",
+            "expression": "YEAR([Date])",
+            "isDataTypeInferred": true,
+            "isHidden": true,
+            "lineageTag": "9a3c9b2e-e7a0-435a-b244-9df19fd36aef",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "NroMes",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "MonthNumber"
+              }
+            ],
+            "dataCategory": "MonthOfYear",
+            "dataType": "int64",
+            "expression": "MONTH([Date])",
+            "isDataTypeInferred": true,
+            "isHidden": true,
+            "lineageTag": "e976b7f1-58f8-430c-aa3d-cc6347888e8a",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "Mes",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Month"
+              }
+            ],
+            "dataCategory": "Months",
+            "dataType": "string",
+            "expression": "FORMAT([Date], \"MMMM\")",
+            "isDataTypeInferred": true,
+            "isHidden": true,
+            "lineageTag": "cfec8b3b-5201-477b-861e-ab587bbd5ed3",
+            "sortByColumn": "NroMes",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "NroTrimestre",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "QuarterNumber"
+              }
+            ],
+            "dataCategory": "QuarterOfYear",
+            "dataType": "int64",
+            "expression": "INT(([NroMes] + 2) / 3)",
+            "isDataTypeInferred": true,
+            "isHidden": true,
+            "lineageTag": "cb2923c4-b337-4fd1-9bd7-a8f99e5cf7bf",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "Trimestre",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Quarter"
+              }
+            ],
+            "dataCategory": "Quarters",
+            "dataType": "string",
+            "expression": "\"Trim. \" & [NroTrimestre]",
+            "isDataTypeInferred": true,
+            "isHidden": true,
+            "lineageTag": "3e400df7-24ed-4a70-a041-8f84e0753509",
+            "sortByColumn": "NroTrimestre",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "Día",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Day"
+              }
+            ],
+            "dataCategory": "DayOfMonth",
+            "dataType": "int64",
+            "expression": "DAY([Date])",
+            "isDataTypeInferred": true,
+            "isHidden": true,
+            "lineageTag": "373b174a-991c-497b-900b-d286b99ff5bf",
+            "summarizeBy": "none",
+            "type": "calculated"
+          }
+        ],
+        "hierarchies": [
+          {
+            "name": "Jerarquía de fechas",
+            "annotations": [
+              {
+                "name": "TemplateId",
+                "value": "DateHierarchy"
+              }
+            ],
+            "levels": [
+              {
+                "name": "Año",
+                "column": "Año",
+                "lineageTag": "9665c93d-d0cf-4976-8be2-1df8b826dc57",
+                "ordinal": 0
+              },
+              {
+                "name": "Trimestre",
+                "column": "Trimestre",
+                "lineageTag": "fef7d16f-6535-439b-b1bd-15bb385532bd",
+                "ordinal": 1
+              },
+              {
+                "name": "Mes",
+                "column": "Mes",
+                "lineageTag": "7c59d24b-f683-4c0b-98b9-8980bd78369c",
+                "ordinal": 2
+              },
+              {
+                "name": "Día",
+                "column": "Día",
+                "lineageTag": "9f9d06a3-8467-411a-a483-3419f8f1e17a",
+                "ordinal": 3
+              }
+            ],
+            "lineageTag": "dd5e20ec-a31e-44e2-a926-e4c578fd8b27"
+          }
+        ],
+        "isHidden": true,
+        "lineageTag": "ac562fc3-c48e-4ad3-ae0f-19e9bb1c9421",
+        "partitions": [
+          {
+            "name": "LocalDateTable_26d48541-9fd3-4cbb-baa8-68fb1b43b7d8-4d6debf8-e5a7-4d41-97b3-292121df1192",
+            "mode": "import",
+            "source": {
+              "expression": "Calendar(Date(Year(MIN('Calendario'[Fecha])), 1, 1), Date(Year(MAX('Calendario'[Fecha])), 12, 31))",
+              "type": "calculated"
+            }
+          }
+        ],
+        "showAsVariationsOnly": true
+      },
+      {
+        "name": "Numeración Tallas",
+        "annotations": [
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "columns": [
+          {
+            "name": "Numeración",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "ba25999c-2559-4f7a-bf0a-643cc6bd2ed5",
+            "sourceColumn": "Numeración",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Tallas",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "SortByColumn"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "fbb4ef5e-24de-40f5-99f3-5d537a912b39",
+            "sortByColumn": "Numeración",
+            "sourceColumn": "Tallas",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "542cc2ff-97c3-4217-8269-9b4e640f0683",
+        "measures": [
+          {
+            "name": "Etiqueta Porcentaje",
+            "displayFolder": "Etiquetas",
+            "expression": "\"% de Horas: \" & FORMAT( [Porcentaje Horas], \".0%\")",
+            "lineageTag": "ebb63bd5-f076-4258-8589-ad292b6c0024"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Numeración Tallas",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Origen = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText(\"i45WMlTSUYoIVorViVYyAjIhLGMgyxfMMgGyfMAsU5BCIDMWAA==\", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Numeración = _t, Tallas = _t]),",
+                "    #\"Tipo cambiado\" = Table.TransformColumnTypes(Origen,{{\"Numeración\", Int64.Type}, {\"Tallas\", type text}})",
+                "in",
+                "    #\"Tipo cambiado\""
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Entidades",
+        "annotations": [
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "columns": [
+          {
+            "name": "Imagen",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataCategory": "ImageUrl",
+            "dataType": "string",
+            "lineageTag": "857f2f2a-fb54-4503-8b0a-ddaef34f356a",
+            "sourceColumn": "Imagen",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Entidad",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "9d0b0d25-51e4-4c12-904b-649762c7eff5",
+            "sourceColumn": "Entidad",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Identificación Entidad",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "8d0ecd9e-7a61-45e5-8c1a-384c04cd391b",
+            "sourceColumn": "Identificación Entidad",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "368b89c9-bae8-4f6b-b53d-4cbd39363d4f",
+        "partitions": [
+          {
+            "name": "Entidades",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Origen = SharePoint.Files(\"https://periferiaitgroup-my.sharepoint.com/personal/johansilva_periferia-it_com/\", [ApiVersion = 15]),",
+                "    #\"Filas filtradas1\" = Table.SelectRows(Origen, each ([Folder Path] = \"https://periferiaitgroup-my.sharepoint.com/personal/johansilva_periferia-it_com/Documents/Iconos/Iconos ATH/\")),",
+                "    #\"Otras columnas quitadas\" = Table.SelectColumns(#\"Filas filtradas1\",{\"Content\", \"Name\"}),",
+                "    #\"Personalizada agregada\" = Table.AddColumn(#\"Otras columnas quitadas\", \"Imagen\", each \"data:image/png;base64,\" & Binary.ToText([Content],BinaryEncoding.Base64)),",
+                "    #\"Columnas quitadas\" = Table.RemoveColumns(#\"Personalizada agregada\",{\"Content\"}),",
+                "    #\"Columna condicional agregada\" = Table.AddColumn(#\"Columnas quitadas\", \"Entidad\", each if [Name] = \"ALMAVIVA.PNG\" then \"Almaviva\" else if [Name] = \"banco Bbva.png\" then \"BBVA\" else if [Name] = \"ATH A TODA HORA S.A.PNG\" then \"ATH\" else if [Name] = \"banco occidente.png\" then \"Banco Occidente\" else if [Name] = \"CREG.png\" then \"CREG\" else if [Name] = \"Logo Bancolombia.png\" then \"Bancolombia\" else if [Name] = \"Logo Bancoomeva.png\" then \"Bancoomeva\" else if [Name] = \"logo colpatria.png\" then \"Colpatria\" else if [Name] = \"Logo Davivienda.png\" then \"Davivienda\" else if [Name] = \"PORVENIR S.A.PNG\" then \"Porvenir\" else if [Name] = \"PROMIGAS.PNG\" then \"Promigas\" else if [Name] = \"enlace.png\" then \"Enlace\" else if [Name] = \"BANCO AV VILLAS.PNG\" then \"Banco.AV.Villas\" else if [Name] = \"BANCO POPULAR.PNG\" then \"Banco Popular\" else if [Name] = \"grupo-aval.png\" then \"Grupo AVAL\" else if [Name] = \"Banco Bogota.png\" then \"Banco Bogota\" else null),",
+                "    #\"Tipo cambiado\" = Table.TransformColumnTypes(#\"Columna condicional agregada\",{{\"Entidad\", type text}}),",
+                "    #\"Columna condicional agregada1\" = Table.AddColumn(#\"Tipo cambiado\", \"Identificación Entidad\", each if [Entidad] = \"Almaviva\" then 1 else if [Entidad] = \"BBVA\" then 2 else if [Entidad] = \"ATH\" then 3 else if [Entidad] = \"Banco Occidente\" then 4 else if [Entidad] = \"CREG\" then 5 else if [Entidad] = \"Bancolombia\" then 6 else if [Entidad] = \"Bancoomeva\" then 7 else if [Entidad] = \"Colpatria\" then 8 else if [Entidad] = \"Davivienda\" then 9 else if [Entidad] = \"Porvenir\" then 10 else if [Entidad] = \"Promigas\" then 11 else if [Entidad] = \"Enlace\" then 12 else if [Entidad] = \"Banco.AV.Villas\" then 13 else if [Entidad] = \"Banco Popular\" then 14 else if [Entidad] = \"Grupo AVAL\" then 15 else if [Entidad] = \"Banco Bogota\" then 16 else null),",
+                "    #\"Columnas quitadas1\" = Table.RemoveColumns(#\"Columna condicional agregada1\",{\"Name\"}),",
+                "    #\"Filas filtradas\" = Table.SelectRows(#\"Columnas quitadas1\", each ([Entidad] <> null))",
+                "in",
+                "    #\"Filas filtradas\""
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "resumen",
+        "annotations": [
+          {
+            "name": "PBI_Id",
+            "value": "83be102acec44e4b8a29a60412bf5cf0"
+          }
+        ],
+        "columns": [
+          {
+            "name": "Total Horas",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "decimal",
+            "isDataTypeInferred": true,
+            "isNameInferred": true,
+            "lineageTag": "b24fc41e-ca18-45f7-bef3-da16574b9fa4",
+            "sourceColumn": "[Total Horas]",
+            "summarizeBy": "sum",
+            "type": "calculatedTableColumn"
+          },
+          {
+            "name": "Talla.Nombre",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "isDataTypeInferred": true,
+            "isNameInferred": true,
+            "lineageTag": "08e60b60-4792-473f-b2ef-67fdece6d6f0",
+            "sourceColumn": "Requerimiento[Talla.Nombre]",
+            "summarizeBy": "none",
+            "type": "calculatedTableColumn"
+          },
+          {
+            "name": "Entidad",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "isDataTypeInferred": true,
+            "isNameInferred": true,
+            "lineageTag": "8ad06127-87dd-4c36-84cb-8bd0282341aa",
+            "sourceColumn": "Entidades[Entidad]",
+            "summarizeBy": "none",
+            "type": "calculatedTableColumn"
+          },
+          {
+            "name": "Servicio",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "isDataTypeInferred": true,
+            "isNameInferred": true,
+            "lineageTag": "eb7fb506-fd03-4918-9289-15d432ece374",
+            "sourceColumn": "Requerimiento[Servicio]",
+            "summarizeBy": "none",
+            "type": "calculatedTableColumn"
+          }
+        ],
+        "lineageTag": "974b9de5-0e30-48b3-8749-fdb669f20332",
+        "partitions": [
+          {
+            "name": "resumen",
+            "mode": "import",
+            "source": {
+              "expression": "SUMMARIZE(Requerimiento,Entidades[Entidad],Requerimiento[Servicio],Requerimiento[Talla.Nombre],\"Total Horas\", SUM(Requerimiento[Horas]))",
+              "type": "calculated"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
