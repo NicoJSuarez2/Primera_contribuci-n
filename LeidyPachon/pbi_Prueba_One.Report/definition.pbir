@@ -1,0 +1,9 @@
+{
+  "version": "4.0",
+  "datasetReference": {
+    "byPath": {
+      "path": "../pbi_Prueba_One.SemanticModel"
+    },
+    "byConnection": null
+  }
+}
